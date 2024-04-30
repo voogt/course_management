@@ -47,13 +47,13 @@
 }
 
 .light-blue-bc{
-    background-color: #F7F9FA;
+    /* background-color: #F7F9FA; */
     padding-top: 40px;
 }
 
 .light-gradient-bc{
     padding-top: 40px;
-    background-image: linear-gradient(#F8FCFE, #DBEFF9);
+    /* background-image: linear-gradient(#F8FCFE, #DBEFF9); */
 }
 
 
