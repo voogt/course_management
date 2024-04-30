@@ -20,6 +20,7 @@
 .course-higlight-item{
     border-radius: 10px;
     margin: auto !important;
+    height: 350px;
 }
 
 .course-higlight-image{
@@ -36,10 +37,13 @@
 
 .course-higlight-text{
     text-align: center;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
     font-weight: 500;
     font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto !important;
+    padding-top: 30px;
+    padding-bottom: 50px !important;
 }
 
 .light-blue-bc{
