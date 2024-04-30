@@ -1,0 +1,125 @@
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    padding: 10px 50px 50px 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px #242424;
+}
+
+.course-higlight-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 5px;
+}
+
+.course-higlight-item{
+    border-radius: 10px;
+    margin: auto !important;
+}
+
+.course-higlight-image{
+    padding: 20px;
+    text-align: center;
+}
+
+.course-higlight-text{
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.light-blue-bc{
+    background-color: #F7F9FA;
+    padding-top: 40px;
+}
+
+.light-gradient-bc{
+    padding-top: 40px;
+    background-image: linear-gradient(#F8FCFE, #DBEFF9);
+}
+
+
+.course-container{
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px #dedede;
+}
+
+.course-container-image{
+    height: 300px;
+    min-height: 240px;
+    object-fit: cover;
+}
+
+.course-container-inner{
+    height: 100%;
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.read-more-btn-abs{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-color: #53ACE5;
+    color: white;
+    border-radius: 2px;
+    padding: 10px 30px 10px 30px;
+}
+
+.read-more-btn{
+    background-color: #53ACE5;
+    color: white;
+    border-radius: 2px;
+    padding: 10px 30px 10px 30px;
+}
+
+.card-inner-img{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: white;
+    height: 350px;
+    width: 100%;
+}
+
+.card-inner-img > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-inner{
+    padding: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: white;
+    height: 350px;
+}
+
+.client-card-inner{
+    padding: 50px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: -35px;
+}
+
+.client-card-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.align-center{
+    text-align: center;
+}

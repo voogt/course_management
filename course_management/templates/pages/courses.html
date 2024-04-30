@@ -1,0 +1,166 @@
+{% extends "templates/web.html" %}
+{% from "erpnext/templates/includes/macros.html" import recommended_item_row %}
+
+
+{% set settings = frappe.db.get_value("Course Landing Page Settings", {
+    'publish': 1,
+}, ['name', 'hero_image']) %}
+
+{% set settings_name = settings[0]%}
+{% set hero_image = settings[1] %}
+
+{% set course_highlights = frappe.db.get_all("Course Highlight Settings Child", filters={
+    'parent': ['=', settings_name]
+}, fields='*', order_by="name") %}
+
+{% set webitems = frappe.db.get_all("Website Item", filters={
+    'item_group': ['=', 'Training'],
+	'published': ['=', 1]
+}, fields='*', order_by="name") %}
+
+{% set clients = frappe.db.get_all("Happy Client Child Table", filters={
+    'parent': ['=', settings_name],
+}, fields='*', order_by="name") %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+<style>
+	.hero-image {
+	background-image: url("{{hero_image}}");
+	background-color: #cccccc;
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	}
+</style>
+
+<div class="hero-image">
+	<div class="hero-text">
+		<h3>Kartoza Courses and Training</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies aliquet sapien ut pretium.</p>
+	</div>
+</div>
+
+<div class="container">
+	<div class="course-higlight-container">
+		<div class="row">
+			{% for higlight in course_highlights %}
+
+				{% set course_higlight = frappe.db.get_value("Website Item", {
+					'name': higlight.course,
+				}, ['web_item_name', 'route', 'website_image', 'website_image_alt', 'short_description']) %}
+
+				<div class="col-md-3">
+					<a href="{{course_higlight[1]}}">
+						<div class="course-higlight-item" style="background-color: {{ higlight.background_color }};">
+							<div class="course-higlight-image">
+								{% if higlight.image%}
+									<img src="{{higlight.image}}"/>
+								{% else %}
+									<img src="{{course_higlight[2]}}"/>
+								{% endif %}
+							</div>
+							<div class="course-higlight-text" style="color: {{ higlight.text_color }};">
+								{{ course_higlight[0] }}
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<div class="light-blue-bc">
+	<div class="container">
+		<h3>Our selection of courses</h3>
+		<div class="all-courses-container">
+			{% for item in webitems%}
+				<div class="course-container">
+					<div class="row">
+						<div class="col-md-3">
+							<img class="course-container-image" src="{{item.website_image}}"/>
+						</div>
+						<div class="col-md-9">
+							<div class="course-container-inner">
+								<h3>{{ item.web_item_name }}</h3>
+								<p>{{ item.short_description }}</p>
+								<a class="read-more-btn-abs" href="{{item.route}}">
+									Read More
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<br><br>
+</div>
+
+<div class="light-gradient-bc">
+
+	{% if clients%}
+		<div class="container">
+			<h2 style="text-align: center;">Our clients</h2>
+			<div class="row">
+				{% for client in clients%}
+				{% set client_details = frappe.db.get_value("Customer", {
+					'name': client.client,
+				}, ['customer_name', 'image']) %}
+					<div class="client-card">
+						<div class="align-center">
+							{% if client_details[1] %}
+								<img class="client-card-img" src="{{client_details[1]}}"/>
+							{% else %}
+								<img class="client-card-img" src="/assets/course_management/images/3d-view-map.jpg"/>
+							{% endif %}
+						</div>
+						<div class="client-card-inner">
+							<h4>{{client.client}}</h4>
+							<p>{{client.message}}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<br><br><br><br>
+	{% endif %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card-inner">
+					<h3>Need some help?</h3>
+					<br>
+					<p>Not sure what you want to study or need some guidance?</p>
+					<br>
+					<a class="read-more-btn" href="/contact-us/new">
+						Contact Us
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="card-inner-img">
+					<img src="/assets/course_management/images/pexels-startup-stock-photos-7112.jpg"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+
+</div>
+{% endblock %}
+
+{% block base_scripts %}
+
+<!-- js should be loaded in body! -->
+<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+{{ include_script("frappe-web.bundle.js") }}
+{{ include_script("controls.bundle.js") }}
+{{ include_script("dialog.bundle.js") }}
+{% endblock %}
