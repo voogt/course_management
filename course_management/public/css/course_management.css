@@ -123,3 +123,19 @@
 .align-center{
     text-align: center;
 }
+
+.seo-inner{
+    display: flex;
+    margin: 10px;
+}
+
+.seo-inner-img{
+    width: 100px;
+    height: 100%;
+}
+
+.seo-inner-text{
+    font-weight: 600;
+    padding: 10px;
+    margin: auto !important;
+}
