@@ -111,17 +111,19 @@
 				{% set client_details = frappe.db.get_value("Customer", {
 					'name': client.client,
 				}, ['customer_name', 'image']) %}
-					<div class="client-card">
-						<div class="align-center">
-							{% if client_details[1] %}
-								<img class="client-card-img" src="{{client_details[1]}}"/>
-							{% else %}
-								<img class="client-card-img" src="/assets/course_management/images/3d-view-map.jpg"/>
-							{% endif %}
-						</div>
-						<div class="client-card-inner">
-							<h4>{{client.client}}</h4>
-							<p>{{client.message}}</p>
+					<div class="col-md-3">
+						<div class="client-card">
+							<div class="align-center">
+								{% if client_details[1] %}
+									<img class="client-card-img" src="{{client_details[1]}}"/>
+								{% else %}
+									<img class="client-card-img" src="/assets/course_management/images/3d-view-map.jpg"/>
+								{% endif %}
+							</div>
+							<div class="client-card-inner">
+								<h4>{{client.client}}</h4>
+								<p>{{client.message}}</p>
+							</div>
 						</div>
 					</div>
 				{% endfor %}
