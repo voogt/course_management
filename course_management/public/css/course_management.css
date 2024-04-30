@@ -27,10 +27,17 @@
     text-align: center;
 }
 
+.course-higlight-image > img{
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .course-higlight-text{
     text-align: center;
     padding: 20px;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .light-blue-bc{
