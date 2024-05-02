@@ -1,7 +1,4 @@
 {% extends "templates/web.html" %}
-{% from "erpnext/templates/includes/macros.html" import recommended_item_row %}
-
-
 {% set settings = frappe.db.get_value("Course Landing Page Settings", {
     'publish': 1,
 }, ['name', 'hero_image']) %}
@@ -53,7 +50,7 @@
 					'name': higlight.course,
 				}, ['web_item_name', 'route', 'website_image', 'website_image_alt', 'short_description']) %}
 
-				<div class="col-sm-3">
+				<div class="col-md-3 col-sm-6 col-xs-12" style="margin-bottom: 10px;">
 					<a href="{{course_higlight[1]}}">
 						<div class="course-higlight-item" style="background-color: {{ higlight.background_color }};">
 							<div class="course-higlight-image">
@@ -111,7 +108,7 @@
 				{% set client_details = frappe.db.get_value("Customer", {
 					'name': client.client,
 				}, ['customer_name', 'image']) %}
-					<div class="col-md-3">
+					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="client-card">
 							<div class="align-center">
 								{% if client_details[1] %}
@@ -163,37 +160,37 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-6">
 						<div class="seo-inner">
 							<img class="seo-inner-img" src="/assets/course_management/images/placeholder.jpeg"/>
 							<p class="seo-inner-text">Learn from anywhere</p>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-6">
 						<div class="seo-inner">
 							<img class="seo-inner-img" src="/assets/course_management/images/placeholder.jpeg"/>
 							<p class="seo-inner-text">Digital learning</p>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-6">
 						<div class="seo-inner">
 							<img class="seo-inner-img" src="/assets/course_management/images/placeholder.jpeg"/>
 							<p class="seo-inner-text">Courses range from R2000</p>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-6">
 						<div class="seo-inner">
 							<img class="seo-inner-img" src="/assets/course_management/images/placeholder.jpeg"/>
 							<p class="seo-inner-text">Accredited courses</p>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-6">
 						<div class="seo-inner">
 							<img class="seo-inner-img" src="/assets/course_management/images/placeholder.jpeg"/>
 							<p class="seo-inner-text">South African Based</p>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-6">
 						<div class="seo-inner">
 							<img class="seo-inner-img" src="/assets/course_management/images/placeholder.jpeg"/>
 							<p class="seo-inner-text">Phenomenal courses</p>

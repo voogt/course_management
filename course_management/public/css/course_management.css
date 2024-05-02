@@ -154,3 +154,18 @@
     padding: 10px;
     margin: auto !important;
 }
+
+@media only screen and (max-width: 765px) {
+    .read-more-btn-abs{
+        position: relative !important;
+        margin: 30px 15px 10px 15px;
+        bottom: 0px;
+    }
+}
+
+@media only screen and (max-width: 710px) {
+    .hero-text{
+        width: 100% !important;
+        margin: 5px 8px 10px 8px;
+    }
+}
