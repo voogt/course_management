@@ -15,6 +15,7 @@ app_license = "MIT"
 
 # include js, css files in header of web template
 web_include_css = f"/assets/course_management/css/course_management.css?v={datetime.now()}"
+
 # web_include_js = "/assets/course_management/js/course_management.js"
 
 # include custom scss in every website theme (without file extension ".scss")
